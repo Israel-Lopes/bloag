@@ -42,7 +42,7 @@ app.engine('handlebars', handlebars({defaultLayout: 'main'}));
 var fs = require('fs');
 app.set('view engine', 'handlebars');
 
-const URI = 'mongodb+srv://israellopes:8fakxcpo@cluster0-7zevn.mongodb.net/test?retryWrites=true&w=majority';
+const {URI} = require(./senha);
 const NOERRO = {
   useUnifiedTopology: true,
   useNewUrlParser: true
