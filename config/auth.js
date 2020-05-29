@@ -3,13 +3,13 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 require('../models/Usuario');
-const Usuario = mongoose.models('usuario');
+const Usuario = mongoose.model('usuarios');
 
 
 module.exports = function(passport){
 
 passport.use(new localStrategy({usernameField: 'email', passwordField: 'senha'}, (email, senha, done) => {
-i  Usuario.findOne({email: email}).then((usuario) => {
+  Usuario.findOne({email: email}).then((usuario) => {
     if (!usuario) {
       return done(null, false, {message: 'Esta conta nao existe'})
     }
@@ -24,7 +24,7 @@ i  Usuario.findOne({email: email}).then((usuario) => {
   })
 }));
 
-passport.serializerUser((usuario, done) => {
+passport.serializeUser((usuario, done) => {
   done(null, usuario.id);
 });
 

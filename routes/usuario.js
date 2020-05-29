@@ -14,17 +14,17 @@ router.post('/registro', (req, res) => {
   var erros = [];
 
   let nome = req.body.nome;
-  if (nome || typeof nome == undefined || nome == null) {
+  if (typeof nome == undefined || nome == null) {
     erros.push({texto: 'Nome invalido'});
   }
 
   let email = req.body.email;
-  if (email || typeof email == undefined || email == null) {
+  if (typeof email == undefined || email == null) {
     erros.push({texto: 'Email invalido'});
   }
 
-  let senha = req.body.senha;
-  if (senha || typeof senha == undefined || senha == null) {
+  let senha = req.body.senha1;
+  if (typeof senha == undefined || senha == null) {
     erros.push({texto: 'Senha invalido'});
   }
 
@@ -76,7 +76,7 @@ router.post('/registro', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  res.render('usuarios');
+  res.render('usuarios/login');
 });
 
 router.post('/login', (req, res, next) => {

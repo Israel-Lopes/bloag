@@ -42,7 +42,7 @@ app.engine('handlebars', handlebars({defaultLayout: 'main'}));
 var fs = require('fs');
 app.set('view engine', 'handlebars');
 
-const {URI} = require(./senha);
+const URI = require('./senha');
 const NOERRO = {
   useUnifiedTopology: true,
   useNewUrlParser: true
